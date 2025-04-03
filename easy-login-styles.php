@@ -32,7 +32,6 @@ if( ! class_exists('ACF') ) {
 }
 
 add_filter('acf/settings/show_admin', '__return_true');
-require_once plugin_dir_path(__FILE__) . 'functions.php';
 
 
 if( function_exists('acf_add_options_page') ) {
