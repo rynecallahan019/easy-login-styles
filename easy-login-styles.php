@@ -1,11 +1,12 @@
 <?php
 /*
 Plugin Name: Easy Login Styles
-Plugin URI: 
+Plugin URI: https://github.com/rynecallahan019/easy-login-styles
+GitHub Plugin URI: https://github.com/rynecallahan019/easy-login-styles
 Description: Login plugin built for Callahan Media customers
-Version: 7.8.0
+Version: 1.0.0
 Author: Callahan Media
-Author URI: https://callahanmediaco.com/
+Author URI: https://rynecallahan.com/
 */
 
 if( ! class_exists('ACF') ) {
