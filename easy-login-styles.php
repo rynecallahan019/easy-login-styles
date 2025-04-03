@@ -4,10 +4,28 @@ Plugin Name: Easy Login Styles
 Plugin URI: https://github.com/rynecallahan019/easy-login-styles
 GitHub Plugin URI: https://github.com/rynecallahan019/easy-login-styles
 Description: Login plugin built for Callahan Media customers
-Version: 1.0.4
+Version: 1.0.5
 Author: Callahan Media
 Author URI: https://rynecallahan.com/
 */
+
+// Include the updater library
+require_once dirname(__FILE__) . '/plugin-update-checker/plugin-update-checker.php';
+
+// Set up the updater
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+$myUpdateChecker = PucFactory::buildUpdateChecker(
+    'https://github.com/rynecallahan019/easy-login-styles/',
+    __FILE__,
+    'easy-login-styles'
+);
+
+// Set the branch that contains the stable release
+$myUpdateChecker->setBranch('main');
+
+// Enable GitHub release asset updates
+$myUpdateChecker->getVcsApi()->enableReleaseAssets();
 
 if( ! class_exists('ACF') ) {
     include_once plugin_dir_path(__FILE__) . 'acf/advanced-custom-fields-pro/acf.php';
