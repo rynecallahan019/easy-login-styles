@@ -4,7 +4,7 @@ Plugin Name: Easy Login Styles
 Plugin URI: https://github.com/rynecallahan019/easy-login-styles
 GitHub Plugin URI: https://github.com/rynecallahan019/easy-login-styles
 Description: Login plugin built for Callahan Media customers
-Version: 1.0.5
+Version: 1.0.7
 Author: Callahan Media
 Author URI: https://rynecallahan.com/
 */
