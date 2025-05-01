@@ -239,6 +239,7 @@ function custom_login_styles() {
         body.login {
             display: flex !important;
             align-items: center;
+            overflow: hidden;
             justify-content: center;
             height: 100vh !important;
             ' . $background_style . '
@@ -257,9 +258,15 @@ function custom_login_styles() {
             }
         }
 
-        @media (max-width: 1024px) {
+        @media (max-width: 520px) {
             #login {
-            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 100% !important;
+            body.login {
+            height: 100%;
+            border: none !important;
+            border-radius: 0 !important;
+            overflow: hidden; 
             }
         }
 
