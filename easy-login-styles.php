@@ -4,7 +4,7 @@ Plugin Name: Easy Login Styles
 Plugin URI: https://github.com/rynecallahan019/easy-login-styles
 GitHub Plugin URI: https://github.com/rynecallahan019/easy-login-styles
 Description: Login plugin built for Callabridge customers
-Version: 1.0.7
+Version: 1.1.0
 Author: Callabridge
 Author URI: https://rynecallahan.com/
 */
