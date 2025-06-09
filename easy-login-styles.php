@@ -4,7 +4,7 @@ Plugin Name: Easy Login Styles
 Plugin URI: https://github.com/rynecallahan019/easy-login-styles
 GitHub Plugin URI: https://github.com/rynecallahan019/easy-login-styles
 Description: Login plugin built for Callabridge customers
-Version: 1.1.1
+Version: 1.1.2
 Author: Callabridge
 Author URI: https://rynecallahan.com/
 */
@@ -61,6 +61,7 @@ function els_register_settings() {
     // Button & Links
     register_setting('els_settings_group', 'els_button_color', ['sanitize_callback' => 'sanitize_hex_color']);
     register_setting('els_settings_group', 'els_label_color', ['sanitize_callback' => 'sanitize_hex_color']);
+    register_setting('els_settings_group', 'els_notice_color', ['sanitize_callback' => 'sanitize_hex_color']);
 }
 add_action('admin_init', 'els_register_settings');
 
@@ -167,6 +168,13 @@ function els_settings_page_callback() {
                         <input type="text" name="els_label_color" id="els_label_color" value="<?php echo esc_attr(get_option('els_label_color', '#333333')); ?>" class="els-color-picker" />
                     </td>
                 </tr>
+                <tr>
+                    <th><label for="els_notice_color">Notice Message Label Color</label></th>
+                    <td>
+                        <input type="text" name="els_notice_color" id="els_notice_color" value="<?php echo esc_attr(get_option('els_notice_color', '#d63638')); ?>" class="els-color-picker" />
+                        <p class="description">Color for error and success messages.</p>
+                    </td>
+                </tr>
             </table>
             
             <?php submit_button(); ?>
@@ -232,6 +240,7 @@ function custom_login_styles() {
     $label_color = get_option('els_label_color', '#333333');
     $input_bg_color = get_option('els_input_background_color', '#ffffff');
     $input_bg_transparent = get_option('els_input_background_transparent', 0);
+    $notice_color = get_option('els_notice_color', '#d63638');
 
     // Ensure user selects only one background type
     $background_style = $bg_image ? 
@@ -338,7 +347,7 @@ function custom_login_styles() {
             box-shadow: none !important;
         }
 
-        .login p, .login a {
+        .login form p, .login form a {
             color: <?php echo $label_color; ?> !important;
             text-decoration: none !important;
         }
@@ -390,6 +399,14 @@ function custom_login_styles() {
             position: relative !important;
             top: 0 !important;
             left: 0 !important;
+        }
+
+        /* Notice Messages (Error & Success) */
+        .login #login_error,
+        .login .message,
+        .login .success, #login_error .login p, #login_error .login a, #login_error .login a:hover {
+            color: <?php echo $notice_color; ?> !important;
+            /*border-left-color: <?php //echo $notice_color; ?> !important;*/
         }
 
         div[style*="border-top:1px solid #ddd"] {
